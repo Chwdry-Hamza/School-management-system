@@ -126,7 +126,7 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
               </div>
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link href="/dashboard/exams" className={linkClasses}>
               <div className="flex items-center">
                 <HiOutlineAcademicCap className="text-lg" />
@@ -173,7 +173,7 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
                 {!collapsed && <span className="ml-3">Setting</span>}
               </div>
             </Link>
-          </li>
+          </li> */}
         </ul>
 
         {/* Support Section */}
