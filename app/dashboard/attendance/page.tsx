@@ -121,22 +121,33 @@ const AttendancePage: NextPage = () => {
   };
 
   // Save attendance
-  const handleSaveAttendance = async () => {
-    try {
-      await axios.post('https://backend-sms-chi.vercel.app/attendance', {
-        department: selectedDepartment,
-        semester: selectedSemester,
-        date: selectedDate.toISOString().split('T')[0],
-        attendance,
-      });
-      console.log('Saving attendance:', { selectedDepartment, selectedSemester, date: selectedDate, attendance });
-      setSuccessMessage('Attendance saved successfully!');
-      setTimeout(() => setSuccessMessage(''), 3000);
-    } catch (error) {
-      console.error('Error saving attendance:', error);
-      alert('Failed to save attendance.');
+const handleSaveAttendance = async () => {
+  try {
+    if (!selectedDepartment || !selectedSemester || !selectedDate || !attendance || !Array.isArray(attendance)) {
+      alert('Please fill all fields and ensure attendance data is valid.');
+      return;
     }
-  };
+
+    await axios.post('https://backend-sms-chi.vercel.app/attendance', {
+      department: selectedDepartment,
+      semester: selectedSemester,
+      date: selectedDate.toISOString().split('T')[0],
+      attendance,
+    });
+    console.log('Saving attendance:', { selectedDepartment, selectedSemester, date: selectedDate, attendance });
+    setSuccessMessage('Attendance saved successfully!');
+    setTimeout(() => setSuccessMessage(''), 3000);
+  } catch (error) {
+    // Narrow the type of error
+    if (axios.isAxiosError(error)) {
+      console.error('Error saving attendance:', error.response ? error.response.data : error.message);
+      alert('Failed to save attendance. Check console for details.');
+    } else {
+      console.error('Unexpected error:', error);
+      alert('An unexpected error occurred.');
+    }
+  }
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 p-6">

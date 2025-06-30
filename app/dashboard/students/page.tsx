@@ -468,20 +468,28 @@ export default function Students() {
   const placeholderImage = 'https://via.placeholder.com/150/cccccc/969696?text=Profile+Photo';
 
   return (
-    <Box sx={{ p: 2 }}>
-      <Card sx={{ mt: 6 }}>
+    <Box sx={{ p: 0, mt: -1, mr: -2, ml: -2 }}>
+      <Card >
         <CardContent>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
             <Typography variant="h6">Students</Typography>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-              <Typography variant="h6">Search</Typography>
+                 <Typography
+                variant="h6"
+                sx={{ display: { xs: 'none', sm: 'block' } }}
+              >
+                Search
+              </Typography>
               <TextField
                 variant="outlined"
                 size="small"
                 placeholder="Search by name"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                sx={{ width: { xs: '150px', sm: 300 } }}
+                sx={{
+                  width: { xs: '150px', sm: 300 },
+                  display: { xs: 'none', sm: 'block' }
+                }}
                 InputProps={{
                   'aria-label': 'Search students',
                 }}

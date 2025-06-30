@@ -193,7 +193,7 @@ export default function Scheduler() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col">
+    <div className="min-h-screen bg-gray-100 flex flex-col mobile-scheduler">
       {/* Header */}
       <header className="bg-white shadow-sm p-4">
         <h1 className="text-3xl font-bold text-gray-800">Event Scheduler</h1>
@@ -201,7 +201,7 @@ export default function Scheduler() {
       </header>
 
       {/* Main Content */}
-      <div className="flex-grow p-6">
+      <div className="flex-grow p-1 mobile-content" >
         <div className="bg-white rounded-xl shadow-lg p-6 h-[calc(100vh-120px)]">
           {/* Toolbar with View Options */}
           <div className="mb-4 flex justify-between items-center">
@@ -257,7 +257,7 @@ export default function Scheduler() {
             onNavigate={handleNavigate}
             eventPropGetter={eventStyleGetter}
             className="custom-calendar"
-            style={{ height: '95%' }}
+            style={{ height: '93%' }}
             popup
             selectable
             onSelectEvent={(event) => {
@@ -490,6 +490,18 @@ export default function Scheduler() {
           border-radius: 0.5rem;
           overflow: hidden;
         }
+   @media (max-width: 640px) {
+  .mobile-scheduler {
+    width: 91vw !important; /* Full viewport width */
+    margin: 0rem -2rem -2rem -2rem !important; /* Top margin 2rem, others -2rem */
+  }
+  .mobile-content {
+    padding: 0.5rem !important; /* Reduced padding to maximize content width */
+  }
+    .custom-calendar {
+    height: 85% !important; /* Set height to 100% for mobile view */
+  }
+}
       `}</style>
     </div>
   );

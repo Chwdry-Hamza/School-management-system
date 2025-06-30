@@ -19,7 +19,7 @@ import {
   HiOutlineCog, // For Setting
 } from 'react-icons/hi';
 
-export default function Sidebar({ collapsed }: { collapsed: boolean }) {
+export default function Sidebar({ collapsed, onLinkClick }: { collapsed: boolean; onLinkClick?: () => void }) {
   const linkClasses = "flex items-center justify-between p-2 text-gray-700 hover:bg-gray-100 hover:text-blue-600 rounded-md transition-colors";
 
   return (
@@ -79,7 +79,7 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
         {!collapsed && <h3 className="text-xs font-semibold text-gray-500 uppercase mb-3">Menu</h3>}
         <ul className="mb-6 space-y-2">
           <li>
-            <Link href="/dashboard/admin" className={linkClasses}>
+            <Link href="/dashboard/admin" className={linkClasses} onClick={onLinkClick}>
               <div className="flex items-center">
                 <HiOutlineChartSquareBar className="text-lg" />
                 {!collapsed && <span className="ml-3">Admin Dashboard</span>}
@@ -87,7 +87,7 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
             </Link>
           </li>
           <li>
-            <Link href="/dashboard/students" className={linkClasses}>
+            <Link href="/dashboard/students" className={linkClasses} onClick={onLinkClick}>
               <div className="flex items-center">
                 <HiOutlineUser className="text-lg" />
                 {!collapsed && <span className="ml-3">Students</span>}
@@ -95,7 +95,7 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
             </Link>
           </li>
           <li>
-            <Link href="/dashboard/teachers" className={linkClasses}>
+            <Link href="/dashboard/teachers" className={linkClasses} onClick={onLinkClick}>
               <div className="flex items-center">
                 <HiOutlineUsers className="text-lg" />
                 {!collapsed && <span className="ml-3">Teachers</span>}
@@ -103,7 +103,7 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
             </Link>
           </li>
           <li>
-            <Link href="/dashboard/scheduler" className={linkClasses}>
+            <Link href="/dashboard/scheduler" className={linkClasses} onClick={onLinkClick}>
               <div className="flex items-center">
                 <HiOutlineCalendar className="text-lg" />
                 {!collapsed && <span className="ml-3">Scheduler</span>}
@@ -111,7 +111,7 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
             </Link>
           </li>
           <li>
-            <Link href="/dashboard/courses" className={linkClasses}>
+            <Link href="/dashboard/courses" className={linkClasses} onClick={onLinkClick}>
               <div className="flex items-center">
                 <HiOutlineBookOpen className="text-lg" />
                 {!collapsed && <span className="ml-3">Course</span>}
@@ -119,15 +119,15 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
             </Link>
           </li>
           <li>
-            <Link href="/dashboard/attendance" className={linkClasses}>
+            <Link href="/dashboard/attendance" className={linkClasses} onClick={onLinkClick}>
               <div className="flex items-center">
                 <HiOutlineClipboardCheck className="text-lg" />
                 {!collapsed && <span className="ml-3">Attendance</span>}
               </div>
             </Link>
           </li>
-          {/* <li>
-            <Link href="/dashboard/exams" className={linkClasses}>
+          <li>
+            <Link href="/dashboard/exams" className={linkClasses} onClick={onLinkClick}>
               <div className="flex items-center">
                 <HiOutlineAcademicCap className="text-lg" />
                 {!collapsed && <span className="ml-3">Exam</span>}
@@ -135,7 +135,7 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
             </Link>
           </li>
           <li>
-            <Link href="/dashboard/fees" className={linkClasses}>
+            <Link href="/dashboard/fees" className={linkClasses} onClick={onLinkClick}>
               <div className="flex items-center">
                 <HiOutlineCash className="text-lg" />
                 {!collapsed && <span className="ml-3">Fees Section</span>}
@@ -143,7 +143,7 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
             </Link>
           </li>
           <li>
-            <Link href="/dashboard/library" className={linkClasses}>
+            <Link href="/dashboard/library" className={linkClasses} onClick={onLinkClick}>
               <div className="flex items-center">
                 <HiOutlineLibrary className="text-lg" />
                 {!collapsed && <span className="ml-3">Library</span>}
@@ -151,7 +151,7 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
             </Link>
           </li>
           <li>
-            <Link href="/dashboard/parentportal" className={linkClasses}>
+            <Link href="/dashboard/parentportal" className={linkClasses} onClick={onLinkClick}>
               <div className="flex items-center">
                 <HiOutlineUserGroup className="text-lg" />
                 {!collapsed && <span className="ml-3">Parent Portal</span>}
@@ -159,7 +159,7 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
             </Link>
           </li>
           <li>
-            <Link href="/dashboard/reports" className={linkClasses}>
+            <Link href="/dashboard/reports" className={linkClasses} onClick={onLinkClick}>
               <div className="flex items-center">
                 <HiOutlineDocumentReport className="text-lg" />
                 {!collapsed && <span className="ml-3">Reports</span>}
@@ -167,20 +167,20 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
             </Link>
           </li>
           <li>
-            <Link href="/dashboard/Setting" className={linkClasses}>
+            <Link href="/dashboard/Setting" className={linkClasses} onClick={onLinkClick}>
               <div className="flex items-center">
                 <HiOutlineCog className="text-lg" />
                 {!collapsed && <span className="ml-3">Setting</span>}
               </div>
             </Link>
-          </li> */}
+          </li>
         </ul>
 
         {/* Support Section */}
         {!collapsed && <h3 className="text-xs font-semibold text-gray-500 uppercase mb-3">Support</h3>}
-        <ul className="space-y-2 pb-4"> {/* Added padding-bottom to ensure Invoice is fully visible */}
+        <ul className="space-y-2 pb-4">
           <li>
-            <Link href="/support/chat" className={linkClasses}>
+            <Link href="/support/chat" className={linkClasses} onClick={onLinkClick}>
               <div className="flex items-center">
                 <HiOutlineChatAlt className="text-lg" />
                 {!collapsed && <span className="ml-3">Chat</span>}
@@ -188,7 +188,7 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
             </Link>
           </li>
           <li>
-            <Link href="/support/email" className={linkClasses}>
+            <Link href="/support/email" className={linkClasses} onClick={onLinkClick}>
               <div className="flex items-center">
                 <HiOutlineMail className="text-lg" />
                 {!collapsed && <span className="ml-3">Email</span>}
@@ -196,7 +196,7 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
             </Link>
           </li>
           <li>
-            <Link href="/support/invoice" className={linkClasses}>
+            <Link href="/support/invoice" className={linkClasses} onClick={onLinkClick}>
               <div className="flex items-center">
                 <HiOutlineDocument className="text-lg" />
                 {!collapsed && <span className="ml-3">Invoice</span>}
