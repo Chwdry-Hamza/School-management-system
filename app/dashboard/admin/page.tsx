@@ -89,7 +89,7 @@ export default function AdminDashboard() {
   const closeTeacherModal = () => setIsTeacherModalOpen(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-200 py-16 px-4 sm:px-6 lg:px-8">
+<div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-200 py-20 px-0 sm:px-0 lg:px-0 w-full sm:w-11/12 lg:w-10/12 mx-auto">
       {/* Header Section */}
       <div className="max-w-7xl mx-auto text-center mb-16">
         <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 mb-4">

@@ -126,7 +126,7 @@ export default function Sidebar({ collapsed, onLinkClick }: { collapsed: boolean
               </div>
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link href="/dashboard/exams" className={linkClasses} onClick={onLinkClick}>
               <div className="flex items-center">
                 <HiOutlineAcademicCap className="text-lg" />
@@ -173,11 +173,11 @@ export default function Sidebar({ collapsed, onLinkClick }: { collapsed: boolean
                 {!collapsed && <span className="ml-3">Setting</span>}
               </div>
             </Link>
-          </li>
+          </li> */}
         </ul>
 
         {/* Support Section */}
-        {!collapsed && <h3 className="text-xs font-semibold text-gray-500 uppercase mb-3">Support</h3>}
+        {/* {!collapsed && <h3 className="text-xs font-semibold text-gray-500 uppercase mb-3">Support</h3>}
         <ul className="space-y-2 pb-4">
           <li>
             <Link href="/support/chat" className={linkClasses} onClick={onLinkClick}>
@@ -203,7 +203,7 @@ export default function Sidebar({ collapsed, onLinkClick }: { collapsed: boolean
               </div>
             </Link>
           </li>
-        </ul>
+        </ul> */}
       </div>
     </div>
   );
